@@ -1,0 +1,24 @@
+{
+  "name": "echo-dowload-web-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cheerio": "^0.19.0",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "eventproxy": "^0.3.4",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+    "superagent": "^1.4.0"
+  },
+  "description": "echo dowload web app",
+  "main": "app.js",
+  "author": "luob",
+  "license": "MIT"
+}
