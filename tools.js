@@ -34,8 +34,9 @@ function loadImg(soundUrl, res) {
           pic: obj.result[soundId].pic,
           source: obj.result[soundId].source
         }
+        console.log(mes);
         downloadImage(mes.pic, function(imgName) {
-          res.redirect('images/' + imgName);
+          res.redirect('images' + imgName);
         });
       } else {
         res.send('err url');
@@ -44,8 +45,11 @@ function loadImg(soundUrl, res) {
 }
 
 function downloadImage(imgUrl, callback) {
-  console.log(imgUrl);
-  var imgName = imgUrl.substring(imgUrl.lastIndexOf('/')) + '.jpg';
+  var imgName = imgUrl.substring(imgUrl.lastIndexOf('/'));
+  if (imgUrl.indexOf('.jpg') == -1) {
+      imgName += '.jpg';
+  }
+  console.log(imgName);
   var stream = fs.createWriteStream('public/images' + imgName);
   var req = superagent.get(imgUrl);
   req.pipe(stream);

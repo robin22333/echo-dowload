@@ -30,7 +30,7 @@ app.use('/users', users);
 
 app.get('/test', function(req, res) {
   var baseUrl = config.url;
-  tools.loadImg(baseUrl + 'sound/928758', res);
+  tools.loadImg(baseUrl + 'sound/181147', res);
 });
 
 // catch 404 and forward to error handler
