@@ -4,6 +4,8 @@
  *@description 配置信息
  *@version 1.0.0
  *@author luob
- *@lastUpdate 2015-11-21
+ *@lastUpdate 2015-01-07
  */
-exports.url = 'http://www.app-echo.com/';
+module.exports = {
+  'url': 'http://www.app-echo.com/'
+}
