@@ -4,7 +4,7 @@
  *@description 工具
  *@version 1.0.0
  *@author luob
- *@lastUpdate 2015-11-21
+ *@lastUpdate 2016-01-07
  */
 
 var superagent = require('superagent')
@@ -17,7 +17,8 @@ var superagent = require('superagent')
 
 var baseUrl = config.url;
 
-function loadImg(soundUrl, res) {
+// load echo sound detail
+exports.loadDetail = function (soundUrl, res) {
   var soundId = soundUrl.substring(soundUrl.lastIndexOf('/') + 1);
   var getUrl = baseUrl + 'sound/detail?ids=%5B' + soundId + '%5D&wp';
   console.log(getUrl);
@@ -27,24 +28,21 @@ function loadImg(soundUrl, res) {
         return console.log(err);
       }
       var obj = JSON.parse(xres.text);
-      if (obj.message === 'success') {
+      if (obj.message === 'success' && obj.result.length !== 0) {
         var mes = {
           name: obj.result[soundId].name,
           info: obj.result[soundId].info,
           pic: obj.result[soundId].pic,
           source: obj.result[soundId].source
         }
-        console.log(mes);
-        downloadImage(mes.pic, function(imgName) {
-          res.redirect('images' + imgName);
-        });
+        res.send({'data': mes, 'flag': true, 'error': ''});
       } else {
-        res.send('err url');
+        res.send({'data':'', 'flag': false, 'error': 'error url'});
       }
     });
 }
 
-function downloadImage(imgUrl, callback) {
+exports.downloadImage = function (imgUrl, callback) {
   var imgName = imgUrl.substring(imgUrl.lastIndexOf('/'));
   if (imgUrl.indexOf('.jpg') == -1) {
       imgName += '.jpg';
@@ -55,5 +53,3 @@ function downloadImage(imgUrl, callback) {
   req.pipe(stream);
   callback(imgName);
 }
-
-exports.loadImg = loadImg;
