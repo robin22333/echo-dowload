@@ -1,8 +1,59 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 300px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+.container {
+  margin: 0 auto;
+  width: 800px;
+  overflow: hidden;
+}
+  .fm {
+    display: block;
+    float: left;
+    border-radius: 5px;
+  }
+    .key {
+      padding: 9px 7px;
+      width: 80%;
+      height: 20px;
+      border: 1px solid #b8b8b8;
+      outline: none;
+      color: #6b6b6b;
+    }
+    .get_btn {
+      width: 15%;
+      background-color: #7ade78;
+      color: #fff;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+.result {
+  margin: 0 auto;
+  width: 400px;
+  display: none;
+}
+  .result span {
+    display: block;
+    padding: 10px;
+  }
+  .back {
+    background-color: #7ade78;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+    .sound_img {
+      width: 100%;
+    }
+    .sound_name {
+      text-decoration: none;
+    }
