@@ -26,11 +26,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+//app.use('/users', users);
 
-app.get('/test', function(req, res) {
-  var baseUrl = config.url;
-  tools.loadImg(baseUrl + 'sound/181147', res);
+app.get('/sound/detail', function(req, res) {
+  var url = req.query['key'];
+  console.log('url:' + url);
+  tools.loadDetail(url, res);
 });
 
 // catch 404 and forward to error handler
